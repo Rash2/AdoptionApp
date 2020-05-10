@@ -56,7 +56,7 @@ class SignUpScreenController: UIViewController {
     }
     
     func transitiontoHomeScreen() {
-        let animalsListViewController = storyboard?.instantiateViewController(identifier: "AnimalsListScreen") as? AnimalsListScreenController
+        let animalsListViewController = storyboard?.instantiateViewController(identifier: "HomeVC") as? UINavigationController
         
         
         animalsListViewController?.modalPresentationStyle = .fullScreen
