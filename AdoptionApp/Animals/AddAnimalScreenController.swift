@@ -9,22 +9,27 @@
 import UIKit
 
 class AddAnimalScreenController: UIViewController {
-
+    
+    @IBOutlet weak var animalPictureView: UIImageView!
+    @IBOutlet weak var tapToChangePictureButton: UIButton!
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var speciesTextField: UITextField!
+    @IBOutlet weak var breedTextField: UITextField!
+    @IBOutlet weak var ageTextField: UITextField!
+    @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        errorLabel.isHidden = true
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func animalAdded(_ sender: Any) {
     }
-    */
+    
 
 }

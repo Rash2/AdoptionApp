@@ -486,19 +486,111 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="animalDefaultPicture" translatesAutoresizingMaskIntoConstraints="NO" id="V8D-Vs-6rk">
+                                <rect key="frame" x="87" y="193" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="V8D-Vs-6rk" secondAttribute="height" multiplier="15:8" id="VL0-Vs-MjF"/>
+                                    <constraint firstAttribute="width" constant="240" id="XaX-Zv-ARs"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYV-NC-oih">
+                                <rect key="frame" x="120.66666666666669" y="329" width="173" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="173" id="y55-Ad-blw"/>
+                                </constraints>
+                                <state key="normal" title="Tap to add animal picture"/>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="ykq-At-Yzw">
+                                <rect key="frame" x="82" y="374" width="250" height="300"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yJe-1d-Tgy">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Species" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d2o-ra-a7q">
+                                        <rect key="frame" x="0.0" y="71" width="250" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Breed" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYs-1A-ehq">
+                                        <rect key="frame" x="0.0" y="136" width="250" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MCV-jZ-vTn">
+                                        <rect key="frame" x="0.0" y="201" width="250" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OXC-7v-Yle">
+                                        <rect key="frame" x="0.0" y="266" width="250" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="bAp-XA-hsS"/>
+                                    <constraint firstAttribute="width" constant="250" id="xqR-Pc-nfA"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cei-WS-yUy">
+                                <rect key="frame" x="107" y="682" width="200" height="20.333333333333371"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="q6p-ca-uph"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wV-fJ-zKj">
+                                <rect key="frame" x="32" y="772.33333333333337" width="350" height="50"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="ced-D2-QpA"/>
+                                    <constraint firstAttribute="height" constant="50" id="yZM-KX-UMO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="25"/>
+                                <state key="normal" title="Put animal up for adoption">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="animalAdded:" destination="s2j-iu-ADk" eventType="touchUpInside" id="ovb-cg-O9Y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="xOc-Og-vNa" firstAttribute="top" secondItem="C5f-5O-px6" secondAttribute="top" constant="5" id="0gU-uj-9NO"/>
+                            <constraint firstItem="cei-WS-yUy" firstAttribute="top" secondItem="ykq-At-Yzw" secondAttribute="bottom" constant="8" id="Dnc-Sa-07O"/>
+                            <constraint firstItem="V8D-Vs-6rk" firstAttribute="top" secondItem="xOc-Og-vNa" secondAttribute="bottom" constant="8" id="Lee-fv-d2i"/>
+                            <constraint firstItem="ykq-At-Yzw" firstAttribute="top" secondItem="eYV-NC-oih" secondAttribute="bottom" constant="15" id="aJq-O5-8bx"/>
                             <constraint firstItem="xOc-Og-vNa" firstAttribute="centerX" secondItem="InJ-kc-1UZ" secondAttribute="centerX" id="bCV-5h-y6D"/>
+                            <constraint firstItem="eYV-NC-oih" firstAttribute="top" secondItem="V8D-Vs-6rk" secondAttribute="bottom" constant="8" id="dXG-Ge-JXe"/>
+                            <constraint firstItem="V8D-Vs-6rk" firstAttribute="centerX" secondItem="InJ-kc-1UZ" secondAttribute="centerX" id="fpI-yd-VDf"/>
+                            <constraint firstItem="eYV-NC-oih" firstAttribute="centerX" secondItem="InJ-kc-1UZ" secondAttribute="centerX" id="gQo-Bf-xQc"/>
+                            <constraint firstItem="3wV-fJ-zKj" firstAttribute="top" secondItem="cei-WS-yUy" secondAttribute="bottom" constant="70" id="p2o-Bl-beO"/>
+                            <constraint firstItem="cei-WS-yUy" firstAttribute="centerX" secondItem="InJ-kc-1UZ" secondAttribute="centerX" id="pz3-Io-1dl"/>
+                            <constraint firstItem="3wV-fJ-zKj" firstAttribute="centerX" secondItem="InJ-kc-1UZ" secondAttribute="centerX" id="urW-c5-aQE"/>
+                            <constraint firstItem="ykq-At-Yzw" firstAttribute="centerX" secondItem="InJ-kc-1UZ" secondAttribute="centerX" id="zhO-a0-tXe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C5f-5O-px6"/>
                     </view>
                     <navigationItem key="navigationItem" id="uUa-7e-Xey"/>
+                    <connections>
+                        <outlet property="ageTextField" destination="MCV-jZ-vTn" id="xfg-hz-ItH"/>
+                        <outlet property="animalPictureView" destination="V8D-Vs-6rk" id="CrV-am-otC"/>
+                        <outlet property="breedTextField" destination="rYs-1A-ehq" id="C8b-Us-IJ2"/>
+                        <outlet property="descriptionTextField" destination="OXC-7v-Yle" id="kUP-5O-TT7"/>
+                        <outlet property="errorLabel" destination="cei-WS-yUy" id="UvZ-9E-Yb4"/>
+                        <outlet property="nameTextField" destination="yJe-1d-Tgy" id="Kru-IW-x5F"/>
+                        <outlet property="speciesTextField" destination="d2o-ra-a7q" id="oH3-kG-NCX"/>
+                        <outlet property="tapToChangePictureButton" destination="eYV-NC-oih" id="NhB-XY-2OC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oyb-NT-eyN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5096" y="-461"/>
+            <point key="canvasLocation" x="5095.652173913044" y="-461.38392857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ems-Jq-Lyx">
@@ -520,6 +612,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="animalDefaultPicture" width="400" height="400"/>
         <image name="icons8-animal-shelter-100" width="100" height="100"/>
     </resources>
 </document>
