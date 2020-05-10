@@ -46,8 +46,26 @@ class SignUpScreenController: UIViewController {
                             self.error.text = err!.localizedDescription
                             return
                         } else {
-                            // Transition to home screen
-                            self.transitiontoHomeScreen()
+                            // Initialize user data to firebase
+                            guard let uid = Auth.auth().currentUser?.uid else {return}
+                            let userRef = Database.database().reference().child("users/\(uid)")
+                            let userObject = [
+                                "firstname": "None",
+                                "lastname": "None",
+                                "address": [
+                                    "city": "None",
+                                    "street": "None"
+                                    ] as [String: Any]
+                            ] as [String: Any]
+                            userRef.setValue(userObject) { (error, ref) in
+                                if error == nil {
+                                    self.transitiontoHomeScreen()
+                                } else {
+                                    self.error.isHidden = true
+                                    self.error.text = error!.localizedDescription
+                                    return
+                                }
+                            }
                         }
                     }
                 }

@@ -50,31 +50,32 @@ class AddAnimalScreenController: UIViewController {
             let animalRef = Database.database().reference().child("animals").childByAutoId()
             let keyValue = animalRef.key!
             let image = animalPictureView.image
-            var photoURL: String?
             
             self.uploadAnimalPicture(image!, keyValue) { url in
+                var photoURL: String?
+                
                 photoURL = url
+                let animalObject = [
+                    "photoURL": photoURL!,
+                    "name": self.nameTextField.text!,
+                    "species": self.speciesTextField.text!,
+                    "breed": self.breedTextField.text!,
+                    "age": Int(self.ageTextField.text!)!,
+                    "description": self.descriptionTextField.text!
+                ] as [String: Any]
+                
+                animalRef.setValue(animalObject, withCompletionBlock: { error, ref in
+                    if error == nil {
+                        self.transitiontoHomeScreen()
+                    } else {
+                        // Handle error
+                        self.errorLabel.isHidden = false
+                        self.errorLabel.text = error!.localizedDescription
+                        return
+                    }
+                })
             }
             
-            let animalObject = [
-                "photoURL": photoURL!,
-                "name": nameTextField.text!,
-                "species": speciesTextField.text!,
-                "breed": breedTextField.text!,
-                "age": Int(ageTextField.text!)!,
-                "description": descriptionTextField.text!
-            ] as [String: Any]
-            
-            animalRef.setValue(animalObject, withCompletionBlock: { error, ref in
-                if error == nil {
-                    self.dismiss(animated: true, completion: nil)
-                } else {
-                    // Handle error
-                    self.errorLabel.isHidden = false
-                    self.errorLabel.text = error!.localizedDescription
-                    return
-                }
-            })
         }
     }
     
@@ -146,6 +147,14 @@ class AddAnimalScreenController: UIViewController {
         }
     }
     
+    func transitiontoHomeScreen() {
+        let animalsListViewController = storyboard?.instantiateViewController(identifier: "HomeVC") as? UINavigationController
+        
+        
+        animalsListViewController?.modalPresentationStyle = .fullScreen
+        animalsListViewController?.modalTransitionStyle = .crossDissolve
+        present(animalsListViewController!, animated: false, completion: nil)
+    }
 
 }
 
