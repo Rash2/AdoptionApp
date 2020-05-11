@@ -61,6 +61,7 @@ class AnimalsListScreenController: UIViewController {
             self.animalsTableView.reloadData()
         }
     }
+    
 
 }
 
@@ -77,4 +78,19 @@ extension AnimalsListScreenController: UITableViewDataSource, UITableViewDelegat
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+            performSegue(withIdentifier: "animalScreenToAnimalProfileSegue", sender: self)
+        }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "animalScreenToAnimalProfileSegue" {
+            let indexPaths = self.animalsTableView!.indexPathsForSelectedRows!
+            let indexPath = indexPaths[0] as NSIndexPath
+            let animalProfile = segue.destination as! AnimalProfileScreenController
+            animalProfile.selectedAnimal = animals[indexPath.row]
+        }
+    }
+    
 }

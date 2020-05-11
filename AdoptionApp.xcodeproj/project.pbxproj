@@ -11,6 +11,7 @@
 		500E60D12469403400564912 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E60D02469403400564912 /* User.swift */; };
 		500E60D32469430000564912 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E60D22469430000564912 /* UserService.swift */; };
 		500E60D524695C3800564912 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500E60D424695C3800564912 /* ImageService.swift */; };
+		501732EE2469773D000A6793 /* AnimalProfileScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501732ED2469773D000A6793 /* AnimalProfileScreenController.swift */; };
 		5025F9C02467F7BE00A8844D /* AddAnimalScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5025F9BF2467F7BE00A8844D /* AddAnimalScreenController.swift */; };
 		504ADB222466C47900E24FF3 /* AnimalsListScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504ADB212466C47900E24FF3 /* AnimalsListScreenController.swift */; };
 		504ADB262466CB9D00E24FF3 /* AnimalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504ADB252466CB9D00E24FF3 /* AnimalCell.swift */; };
@@ -55,6 +56,7 @@
 		500E60D02469403400564912 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		500E60D22469430000564912 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		500E60D424695C3800564912 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		501732ED2469773D000A6793 /* AnimalProfileScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalProfileScreenController.swift; sourceTree = "<group>"; };
 		5025F9BF2467F7BE00A8844D /* AddAnimalScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalScreenController.swift; sourceTree = "<group>"; };
 		504ADB212466C47900E24FF3 /* AnimalsListScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsListScreenController.swift; sourceTree = "<group>"; };
 		504ADB252466CB9D00E24FF3 /* AnimalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCell.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				5025F9BF2467F7BE00A8844D /* AddAnimalScreenController.swift */,
 				504ADB212466C47900E24FF3 /* AnimalsListScreenController.swift */,
+				501732ED2469773D000A6793 /* AnimalProfileScreenController.swift */,
 			);
 			path = Animals;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				5073054C2462CE6A002B8422 /* InitialScreenController.swift in Sources */,
 				504ADB282466D21B00E24FF3 /* Animal.swift in Sources */,
 				5025F9C02467F7BE00A8844D /* AddAnimalScreenController.swift in Sources */,
+				501732EE2469773D000A6793 /* AnimalProfileScreenController.swift in Sources */,
 				50BE98CA2464102700E0EC8E /* SignUpScreenController.swift in Sources */,
 				5073051A2462B917002B8422 /* AppDelegate.swift in Sources */,
 				500E60D524695C3800564912 /* ImageService.swift in Sources */,
