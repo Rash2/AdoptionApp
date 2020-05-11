@@ -17,6 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+        _ = Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+                UserService.observeUserProfile(user!.uid) { user in
+                    UserService.currentUser = user
+                }
+            } else {
+                UserService.currentUser = nil
+            }
+        }
         return true
     }
 

@@ -46,6 +46,8 @@ class AddAnimalScreenController: UIViewController {
     
 
     @IBAction func animalAdded(_ sender: Any) {
+        guard let user = UserService.currentUser else { return }
+        
         if validateForm() {
             let animalRef = Database.database().reference().child("animals").childByAutoId()
             let keyValue = animalRef.key!
@@ -56,6 +58,13 @@ class AddAnimalScreenController: UIViewController {
                 
                 photoURL = url
                 let animalObject = [
+                    "owner": [
+                        "uid": user.uid,
+                        "firstname": user.firstname,
+                        "lastname": user.lastname,
+                        "city": user.city,
+                        "street": user.street
+                    ],
                     "photoURL": photoURL!,
                     "name": self.nameTextField.text!,
                     "species": self.speciesTextField.text!,

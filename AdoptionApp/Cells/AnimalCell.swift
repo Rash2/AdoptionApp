@@ -21,5 +21,9 @@ class AnimalCell: UITableViewCell {
         ageLabel.text = String(animal.age)
         breedLabel.text = animal.breed
         
+        ImageService.getImage(withURL: animal.photoURL) { (image) in
+            self.profileImage.image = image
+        }
+        
     }
 }

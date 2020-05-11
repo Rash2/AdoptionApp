@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class AnimalsListScreenController: UIViewController {
     
-    var animals: [Animal] = []
+    var animals = [Animal]()
     
     @IBOutlet weak var animalsTableView: UITableView!
     
@@ -18,25 +19,47 @@ class AnimalsListScreenController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        animals = createArray()
-        
         animalsTableView.delegate = self
         animalsTableView.dataSource = self
+        animalsTableView.reloadData()
+        observeAnimals()
     }
     
 
-    func createArray() -> [Animal] {
-        var temp: [Animal] = []
+    func observeAnimals() {
         
-        let animal1 = Animal(photoURL: "https://imgur.com/r/animals/sPlUl2Q", age: 5,species: "Dog",breed: "German Shepherd",description: "cool dog", name: "Rexx", ownerAddress: "Prahova, Ploiesti, Str. Anul 1907, nr. 6",ownerId: "id1");
-        let animal2 = Animal(photoURL: "https://imgur.com/r/animals/sPlUl2Q",age: 5,species: "Dog",breed: "German Shepherd", description: "cool dog", name: "Rexx", ownerAddress: "Prahova, Ploiesti, Str. Anul 1907, nr. 6",ownerId: "id1")
-        let animal3 = Animal(photoURL: "https://imgur.com/r/animals/sPlUl2Q",age: 5,species: "Dog",breed: "German Shepherd", description: "cool dog", name: "Rexx", ownerAddress: "Prahova, Ploiesti, Str. Anul 1907, nr. 6",ownerId: "id1")
+        var tempAnimals = [Animal]()
         
-        temp.append(animal1)
-        temp.append(animal2)
-        temp.append(animal3)
+        let animalsRef = Database.database().reference().child("animals")
         
-        return temp
+        animalsRef.observe(.value) { (snapshot) in
+            for child in snapshot.children {
+                if let childSnapshot = child as? DataSnapshot,
+                    let dict = childSnapshot.value as? [String: Any],
+                    let owner = dict["owner"] as? [String: Any],
+                    let uid = owner["uid"] as? String,
+                    let firstname = owner["firstname"] as? String,
+                    let lastname = owner["lastname"] as? String,
+                    let city = owner["city"] as? String,
+                    let street = owner["street"] as? String,
+                    let age = dict["age"] as? Int,
+                    let breed = dict["breed"] as? String,
+                    let species = dict["species"] as? String,
+                    let name = dict["name"] as? String,
+                    let description = dict["description"] as? String,
+                    let photoURL = dict["photoURL"] as? String,
+                    let url = URL(string: photoURL){
+                    
+                    let owner = User(uid: uid, photoURL: "None", firstname: firstname, lastname: lastname, city: city, street: street)
+                    let animal = Animal(id: childSnapshot.key,owner: owner, photoURL: url, age: age, species: species, breed: breed, description: description, name: name)
+                    
+                    tempAnimals.append(animal)
+                    
+                } 
+            }
+            self.animals = tempAnimals
+            self.animalsTableView.reloadData()
+        }
     }
 
 }

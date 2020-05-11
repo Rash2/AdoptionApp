@@ -50,12 +50,11 @@ class SignUpScreenController: UIViewController {
                             guard let uid = Auth.auth().currentUser?.uid else {return}
                             let userRef = Database.database().reference().child("users/\(uid)")
                             let userObject = [
+                                "photoURL": "None",
                                 "firstname": "None",
                                 "lastname": "None",
-                                "address": [
-                                    "city": "None",
-                                    "street": "None"
-                                    ] as [String: Any]
+                                "city": "None",
+                                "street": "None"
                             ] as [String: Any]
                             userRef.setValue(userObject) { (error, ref) in
                                 if error == nil {

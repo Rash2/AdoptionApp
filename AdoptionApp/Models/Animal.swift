@@ -9,23 +9,23 @@
 import Foundation
 
 class Animal {
-    var photoURL: String
+    var id: String
+    var owner: User
+    var photoURL: URL
     var age: Int
     var species: String
     var breed: String
     var description: String
     var name: String
-    var ownerAddress: String
-    var ownerId: String
     
-    init(photoURL: String, age: Int, species: String, breed: String, description: String, name: String, ownerAddress: String, ownerId: String) {
+    init(id: String, owner: User, photoURL: URL, age: Int, species: String, breed: String, description: String, name: String) {
         self.photoURL = photoURL
         self.age = age
         self.species = species
         self.breed = breed
         self.description = description
         self.name = name
-        self.ownerAddress = ownerAddress
-        self.ownerId = ownerId
+        self.owner = owner
+        self.id = id
     }
 }
