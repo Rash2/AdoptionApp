@@ -157,7 +157,7 @@ class AddAnimalScreenController: UIViewController {
     }
     
     func transitiontoHomeScreen() {
-        let animalsListViewController = storyboard?.instantiateViewController(identifier: "AnimalsVC") as? UINavigationController
+        let animalsListViewController = storyboard?.instantiateViewController(identifier: "HomeVC") as? UITabBarController
         
         
         animalsListViewController?.modalPresentationStyle = .fullScreen

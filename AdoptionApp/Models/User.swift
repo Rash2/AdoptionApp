@@ -10,7 +10,7 @@ import Foundation
 
 class User {
     var uid: String
-    var photoURL: String
+    var photoURL: URL
     var firstname: String
     var lastname: String
     var city: String
@@ -19,7 +19,7 @@ class User {
     
     init(uid: String, photoURL: String, firstname: String, lastname: String, city: String, street: String) {
         self.uid = uid
-        self.photoURL = photoURL
+        self.photoURL = URL(string: photoURL)!
         self.firstname = firstname
         self.lastname = lastname
         self.city = city

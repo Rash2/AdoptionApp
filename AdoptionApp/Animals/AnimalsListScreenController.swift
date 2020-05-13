@@ -57,6 +57,7 @@ class AnimalsListScreenController: UIViewController {
                     
                 } 
             }
+            print("Temp animals:", tempAnimals)
             self.animals = tempAnimals
             self.animalsTableView.reloadData()
         }

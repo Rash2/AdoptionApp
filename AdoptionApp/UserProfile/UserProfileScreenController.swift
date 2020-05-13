@@ -22,36 +22,39 @@ class UserProfileScreenController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupUserProfile()
     }
     
     @IBAction func editProfileButtonTapped(_ sender: Any) {
     }
     
     @IBAction func logoutButtonTapped(_ sender: Any) {
+        try! Auth.auth().signOut()
+        
+        let initialViewController = storyboard?.instantiateViewController(identifier: "InitialNavController") as? UINavigationController
+        
+        
+        initialViewController?.modalPresentationStyle = .fullScreen
+        initialViewController?.modalTransitionStyle = .crossDissolve
+        present(initialViewController!, animated: false, completion: nil)
     }
     
     func setupUserProfile() {
-        var currentUser: User?
-        guard let currentUserUID = Auth.auth().currentUser?.uid else {return}
-        let userRef = Database.database().reference().child("users").child(currentUserUID)
         
-        userRef.observe(.value) { (snapshot) in
-            if let dict = snapshot.value as? [String: Any],
-                let photoURL = dict["photoURL"] as? String,
-                let firstname = dict["firstname"] as? String,
-                let lastname = dict["lastname"] as? String,
-                let city = dict["city"] as? String,
-                let street = dict["street"] as? String {
-                let user = User(uid: currentUserUID, photoURL: photoURL, firstname: firstname, lastname: lastname, city: city, street: street)
-                
-                currentUser = user
-            }
+        guard let currentUser = UserService.currentUser else {return}
+        
+        firstNameLabel.text = currentUser.firstname
+        lastNamesLabel.text = currentUser.lastname
+        cityLabel.text = currentUser.city
+        streetLabel.text = currentUser.street
+        ImageService.getImage(withURL: currentUser.photoURL) { (image) in
+            self.userProfilePictureImageView.image = image
         }
         
-        firstNameLabel.text = currentUser?.firstname
-        lastNamesLabel.text = currentUser?.lastname
-        cityLabel.text = currentUser?.city
-        streetLabel.text = currentUser?.street
+        userProfilePictureImageView.layer.cornerRadius = userProfilePictureImageView.frame.size.width / 2
+        userProfilePictureImageView.clipsToBounds = true
+        
+        
         
     }
     
