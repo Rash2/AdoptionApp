@@ -28,6 +28,7 @@
 		5073054C2462CE6A002B8422 /* InitialScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073054B2462CE6A002B8422 /* InitialScreenController.swift */; };
 		50BE98C824640F3C00E0EC8E /* LoginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE98C724640F3C00E0EC8E /* LoginScreenController.swift */; };
 		50BE98CA2464102700E0EC8E /* SignUpScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE98C92464102700E0EC8E /* SignUpScreenController.swift */; };
+		50E57CC3246C3A68002FCA6C /* EditUserProfileScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E57CC2246C3A68002FCA6C /* EditUserProfileScreenController.swift */; };
 		51E8A76D380ADA5CA281A279 /* Pods_AdoptionApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBE78FA76B02E625B58D9E2 /* Pods_AdoptionApp.framework */; };
 		CF287B3BD2AFCF72514B3798 /* Pods_AdoptionApp_AdoptionAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671824EDAF7EB5EE1563B08A /* Pods_AdoptionApp_AdoptionAppUITests.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,7 @@
 		5073054B2462CE6A002B8422 /* InitialScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenController.swift; sourceTree = "<group>"; };
 		50BE98C724640F3C00E0EC8E /* LoginScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenController.swift; sourceTree = "<group>"; };
 		50BE98C92464102700E0EC8E /* SignUpScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreenController.swift; sourceTree = "<group>"; };
+		50E57CC2246C3A68002FCA6C /* EditUserProfileScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileScreenController.swift; sourceTree = "<group>"; };
 		671824EDAF7EB5EE1563B08A /* Pods_AdoptionApp_AdoptionAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdoptionApp_AdoptionAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CBE78FA76B02E625B58D9E2 /* Pods_AdoptionApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdoptionApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82253C4932F1C62F2BEFC57A /* Pods-AdoptionApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdoptionApp.debug.xcconfig"; path = "Target Support Files/Pods-AdoptionApp/Pods-AdoptionApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				5009DD60246AC054000A1C0B /* UserProfileScreenController.swift */,
+				50E57CC2246C3A68002FCA6C /* EditUserProfileScreenController.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50E57CC3246C3A68002FCA6C /* EditUserProfileScreenController.swift in Sources */,
 				5073054C2462CE6A002B8422 /* InitialScreenController.swift in Sources */,
 				504ADB282466D21B00E24FF3 /* Animal.swift in Sources */,
 				5025F9C02467F7BE00A8844D /* AddAnimalScreenController.swift in Sources */,
