@@ -32,7 +32,7 @@ class AnimalsListScreenController: UIViewController {
         
         let animalsRef = Database.database().reference().child("animals")
         
-        animalsRef.observe(.value) { (snapshot) in
+        animalsRef.observeSingleEvent(of: .value) { (snapshot) in
             for child in snapshot.children {
                 if let childSnapshot = child as? DataSnapshot,
                     let dict = childSnapshot.value as? [String: Any],
@@ -57,7 +57,6 @@ class AnimalsListScreenController: UIViewController {
                     
                 } 
             }
-            print("Temp animals:", tempAnimals)
             self.animals = tempAnimals
             self.animalsTableView.reloadData()
         }

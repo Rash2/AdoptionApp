@@ -28,6 +28,8 @@
 		5073054C2462CE6A002B8422 /* InitialScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073054B2462CE6A002B8422 /* InitialScreenController.swift */; };
 		50BE98C824640F3C00E0EC8E /* LoginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE98C724640F3C00E0EC8E /* LoginScreenController.swift */; };
 		50BE98CA2464102700E0EC8E /* SignUpScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE98C92464102700E0EC8E /* SignUpScreenController.swift */; };
+		50CF52A5246D6E560015AF07 /* FavouriteAnimalsListScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CF52A4246D6E560015AF07 /* FavouriteAnimalsListScreenController.swift */; };
+		50CF52A7246D722C0015AF07 /* FavouriteAnimalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CF52A6246D722C0015AF07 /* FavouriteAnimalCell.swift */; };
 		50E57CC3246C3A68002FCA6C /* EditUserProfileScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E57CC2246C3A68002FCA6C /* EditUserProfileScreenController.swift */; };
 		51E8A76D380ADA5CA281A279 /* Pods_AdoptionApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBE78FA76B02E625B58D9E2 /* Pods_AdoptionApp.framework */; };
 		CF287B3BD2AFCF72514B3798 /* Pods_AdoptionApp_AdoptionAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671824EDAF7EB5EE1563B08A /* Pods_AdoptionApp_AdoptionAppUITests.framework */; };
@@ -81,6 +83,8 @@
 		5073054B2462CE6A002B8422 /* InitialScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenController.swift; sourceTree = "<group>"; };
 		50BE98C724640F3C00E0EC8E /* LoginScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenController.swift; sourceTree = "<group>"; };
 		50BE98C92464102700E0EC8E /* SignUpScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreenController.swift; sourceTree = "<group>"; };
+		50CF52A4246D6E560015AF07 /* FavouriteAnimalsListScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteAnimalsListScreenController.swift; sourceTree = "<group>"; };
+		50CF52A6246D722C0015AF07 /* FavouriteAnimalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteAnimalCell.swift; sourceTree = "<group>"; };
 		50E57CC2246C3A68002FCA6C /* EditUserProfileScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileScreenController.swift; sourceTree = "<group>"; };
 		671824EDAF7EB5EE1563B08A /* Pods_AdoptionApp_AdoptionAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdoptionApp_AdoptionAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CBE78FA76B02E625B58D9E2 /* Pods_AdoptionApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdoptionApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				504ADB252466CB9D00E24FF3 /* AnimalCell.swift */,
+				50CF52A6246D722C0015AF07 /* FavouriteAnimalCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 		507305182462B917002B8422 /* AdoptionApp */ = {
 			isa = PBXGroup;
 			children = (
+				50CF52A3246D6E270015AF07 /* FavouriteAnimals */,
 				5009DD5E246AC005000A1C0B /* UserProfile */,
 				5025F9C22467F7ED00A8844D /* Animals */,
 				5025F9C12467F7D300A8844D /* Login */,
@@ -222,6 +228,14 @@
 				5073053D2462B91A002B8422 /* Info.plist */,
 			);
 			path = AdoptionAppUITests;
+			sourceTree = "<group>";
+		};
+		50CF52A3246D6E270015AF07 /* FavouriteAnimals */ = {
+			isa = PBXGroup;
+			children = (
+				50CF52A4246D6E560015AF07 /* FavouriteAnimalsListScreenController.swift */,
+			);
+			path = FavouriteAnimals;
 			sourceTree = "<group>";
 		};
 		58CB75A076F012031AF0A6F6 /* Frameworks */ = {
@@ -489,6 +503,7 @@
 			files = (
 				50E57CC3246C3A68002FCA6C /* EditUserProfileScreenController.swift in Sources */,
 				5073054C2462CE6A002B8422 /* InitialScreenController.swift in Sources */,
+				50CF52A7246D722C0015AF07 /* FavouriteAnimalCell.swift in Sources */,
 				504ADB282466D21B00E24FF3 /* Animal.swift in Sources */,
 				5025F9C02467F7BE00A8844D /* AddAnimalScreenController.swift in Sources */,
 				501732EE2469773D000A6793 /* AnimalProfileScreenController.swift in Sources */,
@@ -502,6 +517,7 @@
 				504ADB222466C47900E24FF3 /* AnimalsListScreenController.swift in Sources */,
 				500E60D12469403400564912 /* User.swift in Sources */,
 				504ADB262466CB9D00E24FF3 /* AnimalCell.swift in Sources */,
+				50CF52A5246D6E560015AF07 /* FavouriteAnimalsListScreenController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

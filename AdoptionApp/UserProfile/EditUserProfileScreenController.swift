@@ -98,6 +98,7 @@ class EditUserProfileScreenController: UIViewController {
             let image = userProfilePictureImageView.image!
             
             let userRef = Database.database().reference()
+            let animalsRef = Database.database().reference().child("animals")
             
             replaceUserProfilePicture(image) { (imageURL) in
                 let userObject = [
@@ -108,13 +109,13 @@ class EditUserProfileScreenController: UIViewController {
                     "street": street
                 ] as [String: Any]
                 
-//                let ownerObject = [
-//                    "uid": currentUser.uid,
-//                    "firstname": firstNames,
-//                    "lastname": lastName,
-//                    "city": city,
-//                    "street": street
-//                ] as [String: Any]
+                let ownerObject = [
+                    "uid": currentUser.uid,
+                    "firstname": firstNames,
+                    "lastname": lastName,
+                    "city": city,
+                    "street": street
+                ] as [String: Any]
                 
                 let childUpdates = [
                     "users/\(currentUser.uid)": userObject,
@@ -126,6 +127,27 @@ class EditUserProfileScreenController: UIViewController {
                         self.errorLabel.isHidden = false
                         self.errorLabel.text = error!.localizedDescription
                         return
+                    } else {
+                        animalsRef.observeSingleEvent(of: .value) { (snapshot) in
+                            for child in snapshot.children {
+                                if let childSnapshot = child as? DataSnapshot,
+                                    let dict = childSnapshot.value as? [String: Any],
+                                    let owner = dict["owner"] as? [String: Any],
+                                    let ownerUID = owner["uid"] as? String,
+                                    currentUser.uid == ownerUID {
+                                    let ownerUpdates = [
+                                        "\(childSnapshot.key)/owner": ownerObject
+                                    ]
+                                    animalsRef.updateChildValues(ownerUpdates) { (error, ref) in
+                                        if error != nil {
+                                            self.errorLabel.isHidden = false
+                                            self.errorLabel.text = error!.localizedDescription
+                                            return
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
