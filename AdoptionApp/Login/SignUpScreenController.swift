@@ -56,7 +56,7 @@ class SignUpScreenController: UIViewController {
                         let userRef = Database.database().reference().child("users/\(uid)")
                         
                         let userObject = [
-                            "photoURL": url,
+                            "photoURL": url as Any,
                             "firstname": firstnames,
                             "lastname": lastname,
                             "city": city,

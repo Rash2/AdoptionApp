@@ -21,6 +21,7 @@ class EditUserProfileScreenController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
     var imagePicker: UIImagePickerController!
+    var initialImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,7 @@ class EditUserProfileScreenController: UIViewController {
         
         ImageService.getImage(withURL: currentUser.photoURL) { (image) in
             self.userProfilePictureImageView.image = image
+            self.initialImage = image
         }
     }
     
@@ -99,10 +101,62 @@ class EditUserProfileScreenController: UIViewController {
             
             let userRef = Database.database().reference()
             let animalsRef = Database.database().reference().child("animals")
-            
-            replaceUserProfilePicture(image) { (imageURL) in
+
+            if initialImage != userProfilePictureImageView.image {
+                replaceUserProfilePicture(image) { (imageURL) in
+                    let userObject = [
+                        "photoURL": imageURL!,
+                        "firstname": firstNames,
+                        "lastname": lastName,
+                        "city": city,
+                        "street": street
+                    ] as [String: Any]
+                    
+                    let ownerObject = [
+                        "uid": currentUser.uid,
+                        "firstname": firstNames,
+                        "lastname": lastName,
+                        "city": city,
+                        "street": street
+                    ] as [String: Any]
+                    
+                    let childUpdates = [
+                        "users/\(currentUser.uid)": userObject,
+                    ]
+                    
+                    // update owners
+                    userRef.updateChildValues(childUpdates) { (error, ref) in
+                        if error != nil {
+                            self.errorLabel.isHidden = false
+                            self.errorLabel.text = error!.localizedDescription
+                            return
+                        } else {
+                            animalsRef.observeSingleEvent(of: .value) { (snapshot) in
+                                for child in snapshot.children {
+                                    if let childSnapshot = child as? DataSnapshot,
+                                        let dict = childSnapshot.value as? [String: Any],
+                                        let owner = dict["owner"] as? [String: Any],
+                                        let ownerUID = owner["uid"] as? String,
+                                        currentUser.uid == ownerUID {
+                                        let ownerUpdates = [
+                                            "\(childSnapshot.key)/owner": ownerObject
+                                        ]
+                                        animalsRef.updateChildValues(ownerUpdates) { (error, ref) in
+                                            if error != nil {
+                                                self.errorLabel.isHidden = false
+                                                self.errorLabel.text = error!.localizedDescription
+                                                return
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
                 let userObject = [
-                    "photoURL": imageURL!,
+                    "photoURL": currentUser.photoURL.absoluteString,
                     "firstname": firstNames,
                     "lastname": lastName,
                     "city": city,
@@ -121,7 +175,7 @@ class EditUserProfileScreenController: UIViewController {
                     "users/\(currentUser.uid)": userObject,
                 ]
                 
-                // TO-DO update owners
+                // update owners
                 userRef.updateChildValues(childUpdates) { (error, ref) in
                     if error != nil {
                         self.errorLabel.isHidden = false
@@ -151,6 +205,7 @@ class EditUserProfileScreenController: UIViewController {
                     }
                 }
             }
+            
             
         }
     }

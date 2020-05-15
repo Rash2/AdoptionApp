@@ -528,6 +528,9 @@
                                                 <state key="normal" title="Add to favourites">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addToFavouritesButtonPressed:" destination="7Sp-PR-pzC" eventType="touchUpInside" id="81V-fa-Oax"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -611,7 +614,7 @@
                     <navigationItem key="navigationItem" title="Animal's profile" id="pC9-w6-HRm"/>
                     <size key="freeformSize" width="414" height="1120"/>
                     <connections>
-                        <outlet property="addToFavouritesButton" destination="sJs-yM-cS4" id="kmE-Bw-Sdj"/>
+                        <outlet property="addToFavouritesButton" destination="sJs-yM-cS4" id="i8n-Jm-qDO"/>
                         <outlet property="ageLabel" destination="giM-fS-8se" id="Uje-Hm-ANg"/>
                         <outlet property="animalPictureView" destination="Qls-tZ-5CS" id="Yeg-Iw-Bei"/>
                         <outlet property="breedLabel" destination="9rV-Ly-J6t" id="sjy-Xf-hDA"/>
@@ -839,6 +842,12 @@
                                                 <constraint firstItem="JKW-qR-vf6" firstAttribute="top" secondItem="fiG-I9-uKt" secondAttribute="bottom" constant="8" id="zjC-P5-cF7"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ageLabel" destination="fiG-I9-uKt" id="8FO-cf-coV"/>
+                                            <outlet property="breedLabel" destination="JKW-qR-vf6" id="EL4-2S-IFY"/>
+                                            <outlet property="favouriteAnimalImageView" destination="P3x-Hd-T0z" id="9Bi-bI-4J0"/>
+                                            <outlet property="nameLabel" destination="zS1-71-z4Z" id="J3u-p3-hW8"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

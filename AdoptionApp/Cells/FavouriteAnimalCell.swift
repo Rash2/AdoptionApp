@@ -10,6 +10,18 @@ import UIKit
 
 class FavouriteAnimalCell: UITableViewCell {
 
+    @IBOutlet weak var favouriteAnimalImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var breedLabel: UILabel!
     
-
+    func setupFavouriteAnimal(animal: Animal) {
+        nameLabel.text = animal.name
+        ageLabel.text = String(animal.age)
+        breedLabel.text = animal.breed
+        
+        ImageService.getImage(withURL: animal.photoURL) { (image) in
+            self.favouriteAnimalImageView.image = image
+        }
+    }
 }

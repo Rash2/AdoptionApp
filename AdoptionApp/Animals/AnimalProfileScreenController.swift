@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AnimalProfileScreenController: UIViewController {
     
@@ -55,8 +56,65 @@ class AnimalProfileScreenController: UIViewController {
             addToFavouritesButton.isHidden = true
         } else {
             removeFromAdoptionListButton.isHidden = true
+//            var addedToFavourites = false
+//            let favouritesRef = Database.database().reference().child("favourites")
+//            favouritesRef.observeSingleEvent(of: .value) { (snapshot) in
+//                for child in snapshot.children {
+//                    if let childSnapshot = child as? DataSnapshot,
+//                        let dict = childSnapshot.value as? [String: Any],
+//                        let addedByUser = dict["addedByUser"] as? String,
+//                        let animal = dict["animal"] as? [String: Any],
+//                        let animalId = animal["id"] as? String {
+//                        if addedByUser == currentUser.uid, self.selectedAnimal.id == animalId {
+//                            addedToFavourites = true
+//                        }
+//                    }
+//                }
+//                if addedToFavourites == true {
+//                    addToFavouritesButton.backgroundColor = 
+//                }
+//            }
+        }
+        
+        
+    }
+    
+    
+    @IBAction func addToFavouritesButtonPressed(_ sender: Any) {
+        guard let currentUser = UserService.currentUser else {return}
+        
+        let favouritesRef = Database.database().reference().child("favourites").childByAutoId()
+        let favouriteAnimalObject = [
+            "addedByUser": currentUser.uid,
+            "animal": [
+                "id": selectedAnimal.id,
+                "photoURL": selectedAnimal.photoURL.absoluteString,
+                "age": selectedAnimal.age,
+                "name": selectedAnimal.name,
+                "species": selectedAnimal.species,
+                "breed": selectedAnimal.breed,
+                "description": selectedAnimal.description,
+                "owner": [
+                    "uid": selectedAnimal.owner.uid
+                ]
+            ]
+        ] as [String: Any]
+        
+        favouritesRef.setValue(favouriteAnimalObject) { (error, ref) in
+            if error == nil {
+                self.transitiontoHomeScreen()
+                }
         }
     }
     
+    func transitiontoHomeScreen() {
+        let animalsListViewController = storyboard?.instantiateViewController(identifier: "HomeVC") as? UITabBarController
+        
+        
+        animalsListViewController?.modalPresentationStyle = .fullScreen
+        animalsListViewController?.modalTransitionStyle = .crossDissolve
+        present(animalsListViewController!, animated: false, completion: nil)
+    }
+
     
 }
