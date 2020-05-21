@@ -15,7 +15,7 @@ class FavouriteAnimalCell: UITableViewCell {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var breedLabel: UILabel!
     
-    func setupFavouriteAnimal(animal: Animal) {
+    func setFavouriteAnimal(animal: Animal) {
         nameLabel.text = animal.name
         ageLabel.text = String(animal.age)
         breedLabel.text = animal.breed

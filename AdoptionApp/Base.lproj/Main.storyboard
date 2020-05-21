@@ -786,7 +786,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="f4Z-CW-Bs3" customClass="FavouriteAnimalCell" customModule="AdoptionApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavouriteAnimalCell" rowHeight="100" id="f4Z-CW-Bs3" customClass="FavouriteAnimalCell" customModule="AdoptionApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f4Z-CW-Bs3" id="LrO-bx-Brq">
@@ -838,6 +838,7 @@
                                                 <constraint firstItem="JKW-qR-vf6" firstAttribute="leading" secondItem="P3x-Hd-T0z" secondAttribute="trailing" constant="8" id="nDT-ib-X1x"/>
                                                 <constraint firstItem="zS1-71-z4Z" firstAttribute="leading" secondItem="P3x-Hd-T0z" secondAttribute="trailing" constant="8" id="o8z-uU-rCg"/>
                                                 <constraint firstItem="P3x-Hd-T0z" firstAttribute="centerY" secondItem="LrO-bx-Brq" secondAttribute="centerY" id="pn5-SW-cgw"/>
+                                                <constraint firstAttribute="bottom" secondItem="JKW-qR-vf6" secondAttribute="bottom" constant="3" id="qlB-hy-Zsu"/>
                                                 <constraint firstItem="zS1-71-z4Z" firstAttribute="top" secondItem="LrO-bx-Brq" secondAttribute="topMargin" id="tcS-fd-W5q"/>
                                                 <constraint firstItem="JKW-qR-vf6" firstAttribute="top" secondItem="fiG-I9-uKt" secondAttribute="bottom" constant="8" id="zjC-P5-cF7"/>
                                             </constraints>
@@ -862,6 +863,9 @@
                         <viewLayoutGuide key="safeArea" id="37r-en-zWe"/>
                     </view>
                     <navigationItem key="navigationItem" title="Your favourite animals" id="6Px-km-hjH"/>
+                    <connections>
+                        <outlet property="favouriteAnimalsTableView" destination="Tua-ZG-3Ds" id="hvR-Uq-6Ah"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7k-px-mtW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
