@@ -54,8 +54,6 @@ class UserProfileScreenController: UIViewController {
         userProfilePictureImageView.layer.cornerRadius = userProfilePictureImageView.frame.size.width / 2
         userProfilePictureImageView.clipsToBounds = true
         
-        
-        
     }
     
 

@@ -76,7 +76,7 @@ class AnimalProfileScreenController: UIViewController {
             }
         }
         
-    }
+     }
     }
     
     
@@ -133,6 +133,52 @@ class AnimalProfileScreenController: UIViewController {
             
         }
         
+    }
+    
+    
+    @IBAction func removeFromAdoptionListButtonPressed(_ sender: Any) {
+        let alertController = UIAlertController(title: "Removal from adoption list confirmation", message: "Press OK to remove the animal from the adoption list.", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
+            return
+                }
+
+        let removeAction = UIAlertAction(title: "Remove", style: .destructive) { (action:UIAlertAction) in
+            let animalRef = Database.database().reference().child("animals/\(self.selectedAnimal.id)")
+            animalRef.removeValue { (error, ref) in
+                if error == nil {
+                    let animalPictureRef = Storage.storage().reference().child("animals/\(self.selectedAnimal.id)")
+                    animalPictureRef.delete { (error) in
+                        if error != nil {
+                            print(error!.localizedDescription)
+                        }
+                    }
+                } else {
+                    print(error!.localizedDescription)
+                }
+            }
+            let favouritesRef = Database.database().reference().child("favourites")
+            favouritesRef.observeSingleEvent(of: .value) { (snapshot) in
+                for child in snapshot.children {
+                    if let childSnapshot = child as? DataSnapshot,
+                        let dict = childSnapshot.value as? [String: Any],
+                        let animal = dict["animal"] as? [String: Any],
+                        let animalId = animal["id"] as? String,
+                        animalId == self.selectedAnimal.id {
+                        favouritesRef.child("\(childSnapshot.key)").removeValue { (error, ref) in
+                            if error != nil {
+                                print(error!.localizedDescription)
+                            }
+                        }
+                    }
+                }
+            }
+            self.transitiontoHomeScreen()
+        }
+
+        alertController.addAction(removeAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     func transitiontoHomeScreen() {
