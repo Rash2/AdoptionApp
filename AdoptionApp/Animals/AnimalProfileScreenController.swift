@@ -105,11 +105,17 @@ class AnimalProfileScreenController: UIViewController {
                 ]
             ] as [String: Any]
             
-            favouritesRef.setValue(favouriteAnimalObject) { (error, ref) in
-                if error == nil {
-                    self.transitiontoHomeScreen()
-                    }
-            }
+            let notificationsRef = Database.database().reference().child("notifications").childByAutoId()
+            let notificationObject = [
+                "addedByUser": currentUser.uid,
+                "owner": selectedAnimal.owner.uid,
+                "animalName": selectedAnimal.name,
+                "readNotification": false
+            ] as [String: Any]
+            
+            favouritesRef.setValue(favouriteAnimalObject)
+            notificationsRef.setValue(notificationObject)
+            self.transitiontoHomeScreen()
         } else {
             let favouritesRef = Database.database().reference().child("favourites")
             
@@ -179,6 +185,16 @@ class AnimalProfileScreenController: UIViewController {
         alertController.addAction(removeAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func viewOwnerButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "animalProfileToOwnerProfileSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! OwnerProfileScreenController
+        vc.ownerUid = self.selectedAnimal.owner.uid
     }
     
     func transitiontoHomeScreen() {

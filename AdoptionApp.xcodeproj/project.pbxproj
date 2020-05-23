@@ -31,6 +31,8 @@
 		50BE98CA2464102700E0EC8E /* SignUpScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE98C92464102700E0EC8E /* SignUpScreenController.swift */; };
 		50CF52A5246D6E560015AF07 /* FavouriteAnimalsListScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CF52A4246D6E560015AF07 /* FavouriteAnimalsListScreenController.swift */; };
 		50CF52A7246D722C0015AF07 /* FavouriteAnimalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CF52A6246D722C0015AF07 /* FavouriteAnimalCell.swift */; };
+		50E39DC924794D2100C4EE8A /* NotificationsScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E39DC824794D2100C4EE8A /* NotificationsScreenController.swift */; };
+		50E39DCD2479502100C4EE8A /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E39DCC2479502100C4EE8A /* NotificationCell.swift */; };
 		50E57CC3246C3A68002FCA6C /* EditUserProfileScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E57CC2246C3A68002FCA6C /* EditUserProfileScreenController.swift */; };
 		51E8A76D380ADA5CA281A279 /* Pods_AdoptionApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CBE78FA76B02E625B58D9E2 /* Pods_AdoptionApp.framework */; };
 		CF287B3BD2AFCF72514B3798 /* Pods_AdoptionApp_AdoptionAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 671824EDAF7EB5EE1563B08A /* Pods_AdoptionApp_AdoptionAppUITests.framework */; };
@@ -87,6 +89,8 @@
 		50BE98C92464102700E0EC8E /* SignUpScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreenController.swift; sourceTree = "<group>"; };
 		50CF52A4246D6E560015AF07 /* FavouriteAnimalsListScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteAnimalsListScreenController.swift; sourceTree = "<group>"; };
 		50CF52A6246D722C0015AF07 /* FavouriteAnimalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteAnimalCell.swift; sourceTree = "<group>"; };
+		50E39DC824794D2100C4EE8A /* NotificationsScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsScreenController.swift; sourceTree = "<group>"; };
+		50E39DCC2479502100C4EE8A /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		50E57CC2246C3A68002FCA6C /* EditUserProfileScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileScreenController.swift; sourceTree = "<group>"; };
 		671824EDAF7EB5EE1563B08A /* Pods_AdoptionApp_AdoptionAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdoptionApp_AdoptionAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CBE78FA76B02E625B58D9E2 /* Pods_AdoptionApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdoptionApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +162,7 @@
 			children = (
 				504ADB252466CB9D00E24FF3 /* AnimalCell.swift */,
 				50CF52A6246D722C0015AF07 /* FavouriteAnimalCell.swift */,
+				50E39DCC2479502100C4EE8A /* NotificationCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 		507305182462B917002B8422 /* AdoptionApp */ = {
 			isa = PBXGroup;
 			children = (
+				50E39DC724794D0300C4EE8A /* Notifications */,
 				50CF52A3246D6E270015AF07 /* FavouriteAnimals */,
 				5009DD5E246AC005000A1C0B /* UserProfile */,
 				5025F9C22467F7ED00A8844D /* Animals */,
@@ -239,6 +245,14 @@
 				50CF52A4246D6E560015AF07 /* FavouriteAnimalsListScreenController.swift */,
 			);
 			path = FavouriteAnimals;
+			sourceTree = "<group>";
+		};
+		50E39DC724794D0300C4EE8A /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				50E39DC824794D2100C4EE8A /* NotificationsScreenController.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		58CB75A076F012031AF0A6F6 /* Frameworks */ = {
@@ -512,6 +526,8 @@
 				501732EE2469773D000A6793 /* AnimalProfileScreenController.swift in Sources */,
 				50BE98CA2464102700E0EC8E /* SignUpScreenController.swift in Sources */,
 				508FA1CA2478314D0061217A /* OwnerProfileScreenController.swift in Sources */,
+				50E39DCD2479502100C4EE8A /* NotificationCell.swift in Sources */,
+				50E39DC924794D2100C4EE8A /* NotificationsScreenController.swift in Sources */,
 				5073051A2462B917002B8422 /* AppDelegate.swift in Sources */,
 				5009DD61246AC054000A1C0B /* UserProfileScreenController.swift in Sources */,
 				500E60D524695C3800564912 /* ImageService.swift in Sources */,

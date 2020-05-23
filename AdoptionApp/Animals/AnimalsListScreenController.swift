@@ -12,8 +12,11 @@ import Firebase
 class AnimalsListScreenController: UIViewController {
     
     var animals = [Animal]()
+    var currentAnimals = [Animal]()
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var animalsTableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,7 @@ class AnimalsListScreenController: UIViewController {
         animalsTableView.dataSource = self
         animalsTableView.reloadData()
         observeAnimals()
+        setupSearchBar()
     }
     
 
@@ -58,20 +62,25 @@ class AnimalsListScreenController: UIViewController {
                 } 
             }
             self.animals = tempAnimals
+            self.currentAnimals = tempAnimals
             self.animalsTableView.reloadData()
         }
+    }
+    
+    func setupSearchBar() {
+        searchBar.delegate = self
     }
     
 
 }
 
-extension AnimalsListScreenController: UITableViewDataSource, UITableViewDelegate {
+extension AnimalsListScreenController: UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return animals.count
+        return currentAnimals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let animal = animals[indexPath.row]
+        let animal = currentAnimals[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnimalCell") as! AnimalCell
         cell.setAnimal(animal: animal)
@@ -91,6 +100,45 @@ extension AnimalsListScreenController: UITableViewDataSource, UITableViewDelegat
             let animalProfile = segue.destination as! AnimalProfileScreenController
             animalProfile.selectedAnimal = animals[indexPath.row]
         }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        currentAnimals = animals.filter({ (animal) -> Bool in
+            switch searchBar.selectedScopeButtonIndex {
+            case 0:
+                if searchText.isEmpty { return true }
+                return animal.species.lowercased().contains(searchText.lowercased()) || animal.owner.city.lowercased().contains(searchText.lowercased())
+            case 1:
+                if searchText.isEmpty { return animal.age <= 5 }
+                return (animal.species.lowercased().contains(searchText.lowercased()) || animal.owner.city.lowercased().contains(searchText.lowercased())) && animal.age <= 5
+            case 2:
+                if searchText.isEmpty { return animal.age > 5 }
+                return (animal.species.lowercased().contains(searchText.lowercased()) || animal.owner.city.lowercased().contains(searchText.lowercased())) && animal.age > 5
+            default:
+                return false
+            }
+        })
+        
+        animalsTableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        switch selectedScope {
+        case 0:
+            currentAnimals = animals
+        case 1:
+            currentAnimals = animals.filter({ (animal) -> Bool in
+                animal.age <= 5
+            })
+        case 2:
+            currentAnimals = animals.filter({ (animal) -> Bool in
+                animal.age > 5
+            })
+        default:
+            break
+        }
+        animalsTableView.reloadData()
     }
     
 }
