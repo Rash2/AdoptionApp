@@ -14,7 +14,8 @@ class NewMessageScreenController: UIViewController {
     
     @IBOutlet weak var receiverProfilePictureImageView: UIImageView!
     @IBOutlet weak var receiverInformationLabel: UILabel!
-    @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var messageTextView: UITextView!
+    
     
     var receiverUID = ""
     
@@ -47,6 +48,23 @@ class NewMessageScreenController: UIViewController {
     }
     
     @IBAction func sendButtonPressed(_ sender: Any) {
+        guard let currentUser = UserService.currentUser else { return }
+        
+        let messagesRef = Database.database().reference().child("messages").childByAutoId()
+        let messageObject = [
+            "senderUID": currentUser.uid,
+            "receiverUID": receiverUID,
+            "message": messageTextView.text!,
+            "readMessage": false,
+        ] as [String: Any]
+        
+        messagesRef.setValue(messageObject) { (error, ref) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                self.performSegue(withIdentifier: "newMessageToMessageListSegue", sender: self)
+            }
+        }
     }
     
 }

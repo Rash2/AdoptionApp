@@ -32,6 +32,10 @@
 		50BE98CA2464102700E0EC8E /* SignUpScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE98C92464102700E0EC8E /* SignUpScreenController.swift */; };
 		50CF52A5246D6E560015AF07 /* FavouriteAnimalsListScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CF52A4246D6E560015AF07 /* FavouriteAnimalsListScreenController.swift */; };
 		50CF52A7246D722C0015AF07 /* FavouriteAnimalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CF52A6246D722C0015AF07 /* FavouriteAnimalCell.swift */; };
+		50D499A6247A9A88007161B2 /* MessagesListScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D499A5247A9A88007161B2 /* MessagesListScreenController.swift */; };
+		50D499A8247A9F3D007161B2 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D499A7247A9F3D007161B2 /* MessageCell.swift */; };
+		50D499AA247AA077007161B2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D499A9247AA077007161B2 /* Message.swift */; };
+		50D499AC247AB627007161B2 /* MessageScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D499AB247AB627007161B2 /* MessageScreenController.swift */; };
 		50E39DC924794D2100C4EE8A /* NotificationsScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E39DC824794D2100C4EE8A /* NotificationsScreenController.swift */; };
 		50E39DCD2479502100C4EE8A /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E39DCC2479502100C4EE8A /* NotificationCell.swift */; };
 		50E57CC3246C3A68002FCA6C /* EditUserProfileScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E57CC2246C3A68002FCA6C /* EditUserProfileScreenController.swift */; };
@@ -91,6 +95,10 @@
 		50BE98C92464102700E0EC8E /* SignUpScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreenController.swift; sourceTree = "<group>"; };
 		50CF52A4246D6E560015AF07 /* FavouriteAnimalsListScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteAnimalsListScreenController.swift; sourceTree = "<group>"; };
 		50CF52A6246D722C0015AF07 /* FavouriteAnimalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteAnimalCell.swift; sourceTree = "<group>"; };
+		50D499A5247A9A88007161B2 /* MessagesListScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesListScreenController.swift; sourceTree = "<group>"; };
+		50D499A7247A9F3D007161B2 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		50D499A9247AA077007161B2 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		50D499AB247AB627007161B2 /* MessageScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageScreenController.swift; sourceTree = "<group>"; };
 		50E39DC824794D2100C4EE8A /* NotificationsScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsScreenController.swift; sourceTree = "<group>"; };
 		50E39DCC2479502100C4EE8A /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		50E57CC2246C3A68002FCA6C /* EditUserProfileScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileScreenController.swift; sourceTree = "<group>"; };
@@ -163,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				5031B722247A616C00C2960A /* NewMessageScreenController.swift */,
+				50D499A5247A9A88007161B2 /* MessagesListScreenController.swift */,
+				50D499AB247AB627007161B2 /* MessageScreenController.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -173,6 +183,7 @@
 				504ADB252466CB9D00E24FF3 /* AnimalCell.swift */,
 				50CF52A6246D722C0015AF07 /* FavouriteAnimalCell.swift */,
 				50E39DCC2479502100C4EE8A /* NotificationCell.swift */,
+				50D499A7247A9F3D007161B2 /* MessageCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -182,6 +193,7 @@
 			children = (
 				504ADB272466D21B00E24FF3 /* Animal.swift */,
 				500E60D02469403400564912 /* User.swift */,
+				50D499A9247AA077007161B2 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -535,11 +547,14 @@
 				504ADB282466D21B00E24FF3 /* Animal.swift in Sources */,
 				5025F9C02467F7BE00A8844D /* AddAnimalScreenController.swift in Sources */,
 				501732EE2469773D000A6793 /* AnimalProfileScreenController.swift in Sources */,
+				50D499A8247A9F3D007161B2 /* MessageCell.swift in Sources */,
 				5031B723247A616C00C2960A /* NewMessageScreenController.swift in Sources */,
 				50BE98CA2464102700E0EC8E /* SignUpScreenController.swift in Sources */,
 				508FA1CA2478314D0061217A /* OwnerProfileScreenController.swift in Sources */,
+				50D499A6247A9A88007161B2 /* MessagesListScreenController.swift in Sources */,
 				50E39DCD2479502100C4EE8A /* NotificationCell.swift in Sources */,
 				50E39DC924794D2100C4EE8A /* NotificationsScreenController.swift in Sources */,
+				50D499AC247AB627007161B2 /* MessageScreenController.swift in Sources */,
 				5073051A2462B917002B8422 /* AppDelegate.swift in Sources */,
 				5009DD61246AC054000A1C0B /* UserProfileScreenController.swift in Sources */,
 				500E60D524695C3800564912 /* ImageService.swift in Sources */,
@@ -548,6 +563,7 @@
 				50BE98C824640F3C00E0EC8E /* LoginScreenController.swift in Sources */,
 				504ADB222466C47900E24FF3 /* AnimalsListScreenController.swift in Sources */,
 				500E60D12469403400564912 /* User.swift in Sources */,
+				50D499AA247AA077007161B2 /* Message.swift in Sources */,
 				504ADB262466CB9D00E24FF3 /* AnimalCell.swift in Sources */,
 				50CF52A5246D6E560015AF07 /* FavouriteAnimalsListScreenController.swift in Sources */,
 			);
