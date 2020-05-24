@@ -757,6 +757,9 @@
                                                 <state key="normal" title="Message user">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="messageOwnerButtonPressed:" destination="owe-yP-tB6" eventType="touchUpInside" id="cwz-gC-PpH"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -818,11 +821,87 @@
                         <outlet property="lastNameLabel" destination="23a-pC-tWH" id="h4Z-ne-o4S"/>
                         <outlet property="ownerProfilePictureImageView" destination="0Gu-Rb-9JJ" id="7h6-Tl-B9g"/>
                         <outlet property="streetLabel" destination="nFB-iS-WvB" id="kQL-1E-tF1"/>
+                        <segue destination="8WB-uy-9zh" kind="show" identifier="userProfileToNewMessageSegue" id="eVB-hF-OCN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MHi-SZ-5Lb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6915.9420289855079" y="225.66964285714283"/>
+        </scene>
+        <!--New message-->
+        <scene sceneID="uIR-Ey-dFd">
+            <objects>
+                <viewController id="8WB-uy-9zh" customClass="NewMessageScreenController" customModule="AdoptionApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UW8-BI-WTb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PYg-MR-AmH">
+                                <rect key="frame" x="20" y="150" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PYg-MR-AmH" secondAttribute="height" multiplier="1:1" id="5Gk-pe-Z07"/>
+                                    <constraint firstAttribute="width" constant="100" id="hvP-cU-Uch"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ns0-bo-yQL">
+                                <rect key="frame" x="128" y="183" width="266" height="34.333333333333343"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="ZpN-o4-u0w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0U8-U2-IrB">
+                                <rect key="frame" x="82" y="727.33333333333337" width="250" height="60"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="6Lo-lO-uRL"/>
+                                    <constraint firstAttribute="height" constant="60" id="KeO-B9-gYW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendButtonPressed:" destination="8WB-uy-9zh" eventType="touchUpInside" id="S3r-99-g7c"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" placeholder="Enter your message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sF5-JD-oBl">
+                                <rect key="frame" x="10" y="257.33333333333331" width="394" height="449.99999999999994"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="450" id="2MJ-Tr-1ho"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ns0-bo-yQL" firstAttribute="leading" secondItem="PYg-MR-AmH" secondAttribute="trailing" constant="8" id="890-kd-3ES"/>
+                            <constraint firstItem="sF5-JD-oBl" firstAttribute="centerX" secondItem="UW8-BI-WTb" secondAttribute="centerX" id="89q-w3-SM1"/>
+                            <constraint firstItem="PYg-MR-AmH" firstAttribute="leading" secondItem="Ut0-KG-Xmg" secondAttribute="leading" constant="20" id="CHu-JQ-dZO"/>
+                            <constraint firstItem="PYg-MR-AmH" firstAttribute="top" secondItem="Ut0-KG-Xmg" secondAttribute="top" constant="10" id="DSD-hj-Ff9"/>
+                            <constraint firstItem="sF5-JD-oBl" firstAttribute="top" secondItem="Ns0-bo-yQL" secondAttribute="bottom" constant="40" id="FPy-c1-06D"/>
+                            <constraint firstItem="sF5-JD-oBl" firstAttribute="leading" secondItem="Ut0-KG-Xmg" secondAttribute="leading" constant="10" id="QXr-pK-4gi"/>
+                            <constraint firstItem="0U8-U2-IrB" firstAttribute="centerX" secondItem="UW8-BI-WTb" secondAttribute="centerX" id="TCy-Uv-hZS"/>
+                            <constraint firstItem="Ut0-KG-Xmg" firstAttribute="trailing" secondItem="sF5-JD-oBl" secondAttribute="trailing" constant="10" id="Ve0-NC-yXf"/>
+                            <constraint firstItem="Ut0-KG-Xmg" firstAttribute="trailing" secondItem="Ns0-bo-yQL" secondAttribute="trailing" constant="20" id="YUL-J6-Qg9"/>
+                            <constraint firstItem="0U8-U2-IrB" firstAttribute="top" secondItem="sF5-JD-oBl" secondAttribute="bottom" constant="20" id="sZW-eD-Jqa"/>
+                            <constraint firstItem="Ns0-bo-yQL" firstAttribute="centerY" secondItem="PYg-MR-AmH" secondAttribute="centerY" id="uah-da-aUM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ut0-KG-Xmg"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New message" id="A1A-EX-fbb"/>
+                    <connections>
+                        <outlet property="messageTextField" destination="sF5-JD-oBl" id="ejt-2x-uVa"/>
+                        <outlet property="receiverInformationLabel" destination="Ns0-bo-yQL" id="psH-v6-vNp"/>
+                        <outlet property="receiverProfilePictureImageView" destination="PYg-MR-AmH" id="LkL-fS-PEC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cMJ-XE-HJt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7973.9130434782619" y="225.66964285714283"/>
         </scene>
         <!--Add Animal Screen Controller-->
         <scene sceneID="3I7-Xs-mKZ">
@@ -1825,7 +1904,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="izk-HQ-47r"/>
+        <segue reference="EcC-G8-4Cj"/>
         <segue reference="Ttb-nA-ySM"/>
     </inferredMetricsTieBreakers>
     <resources>

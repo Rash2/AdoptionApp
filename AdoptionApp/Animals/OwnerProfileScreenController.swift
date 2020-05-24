@@ -56,5 +56,15 @@ class OwnerProfileScreenController: UIViewController {
             }
         }
     }
+    
+    @IBAction func messageOwnerButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "userProfileToNewMessageSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! NewMessageScreenController
+        vc.receiverUID = ownerUid
+    }
+    
 
 }
